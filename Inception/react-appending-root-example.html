@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi React</title>
+  </head>
+  <body>
+    <!-- Here we gave h1 elements (This is TOP heading & This is BOTTOM heading) OUTSIDE root. So, in JS we are rendering some data to root. So, this is getting appending. -->
+    <h1>This is TOP heading</h1>
+    <div id="root"></div>
+    <h1>This is BOTTOM heading</h1>
+
+    <!-- /// Added CDN links to import REACT into our project -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- /////// -->
+
+    <script src="./react-appending-root-example.js"></script>
+  </body>
+</html>

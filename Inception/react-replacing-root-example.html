@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi React</title>
+  </head>
+  <body>
+    <!-- Here we gave h1 element (Hi, This is Jahnavi) INSIDE root but in JS we are rendering some data to root. So, this is getting replaced. -->
+    <div id="root">
+      <h1>Hi, This is Jahnavi!</h1>
+    </div>
+
+    <!-- /// Added CDN links to import REACT into our project -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- /////// -->
+
+    <script src="./react-replacing-root-example.js"></script>
+  </body>
+</html>
