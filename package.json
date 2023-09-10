@@ -1,0 +1,27 @@
+{
+  "name": "learn-react",
+  "version": "1.0.0",
+  "description": "This is learning of react by Vuyyuru Jahnavi",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jahnavi2001/learn-react.git"
+  },
+  "keywords": [],
+  "author": "Vuyyuru Jahnavi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jahnavi2001/learn-react/issues"
+  },
+  "homepage": "https://github.com/Jahnavi2001/learn-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
