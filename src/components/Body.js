@@ -1,43 +1,68 @@
 import RestaurantCard from "./RestaurantCard";
-import resObj from "../utils/mockData";
-import { useState } from "react";
+import Shimmer from "./Shimmer";
+import { useState, useEffect } from "react";
 
 const Body = () => {
+  // Local State Variable - This is nothing but array destructuting
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([])
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // ------ First way
-  // This is nothing but array destructuting
-  // Local State Variable
-  // let [listOfRestaurants, setListOfRestaurants] = useState(resObj);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // ------ Second way
-  // If we simplify above statement it looks as this
-  // const arr = useState(resObj)
-  // const [listOfRestaurants, setListOfRestaurants] = arr
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9204334&lng=77.63571390000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    setListOfRestaurants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  };
 
-  // ------ Third way
-  // If we more simplify above statement it looks as this
-  const arr = useState(resObj)
-  const listOfRestaurants = arr[0]
-  const setListOfRestaurants = arr[1]
-
-  // ----- we can extract a call back function to here alsooo (or) we can directly write there also instead of extracting
-  const onButtonClick = () => {
-    console.log("button clicked before", listOfRestaurants);
+  const filterTopRatedRestaurants = () => {
     const filteredList = listOfRestaurants.filter(
       (restaurant) => restaurant.info.avgRating > 4
     );
     setListOfRestaurants(filteredList);
-    console.log("after filter listOfRestaurants", listOfRestaurants);
   };
 
-  return (
+  return filteredRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
-      {/* <div className="search">Search</div> */}
-      <button className="top-restaurants-btn" onClick={onButtonClick}>
-        Top Listed Restaurants
-      </button>
+      <div style={{ display: "flex" }}>
+        <div className="search">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+          ></input>
+          <button
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchTerm.toLowerCase())
+              );
+              setFilteredRestaurants(filteredList);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <button
+          className="top-restaurants-btn"
+          onClick={filterTopRatedRestaurants}
+        >
+          Top Listed Restaurants
+        </button>
+      </div>
       <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard resData={restaurant} key={restaurant.info.id} />
         ))}
       </div>
