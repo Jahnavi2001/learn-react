@@ -1,8 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
-import { RES_LIST_API } from '../utils/constants'
-import { Link } from 'react-router-dom'
+import { RES_LIST_API } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // Local State Variable - This is nothing but array destructuting
@@ -64,8 +64,13 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-          {filteredRestaurants.map((restaurant) => (
-          <Link to={'/restaurants/' + restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+        {filteredRestaurants.map((restaurant) => (
+          <Link
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

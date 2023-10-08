@@ -90,3 +90,9 @@
   background-color: #e0e0e0;
   margin: 20px;
 }
+
+.user-card {
+  border: 1px solid black;
+  padding: 24px;
+  margin: 24px;
+}
