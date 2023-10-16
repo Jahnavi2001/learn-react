@@ -6,7 +6,6 @@ const ItemList = ({ items }) => {
 
   const dispatch = useDispatch()
   const handleAddItem = (item) => {
-    console.log('itemm caleed', item)
     dispatch(addItem(item))
   }
 
@@ -14,6 +13,7 @@ const ItemList = ({ items }) => {
     <div>
       {items.map((item) => (
         <div
+          data-testid="foodItems"
           className="border-b-2 border-gray-300 p-4 my-2 text-left flex gap-4"
           key={item.card.info.id}
         >

@@ -2,8 +2,7 @@ import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
 
-const RestaurantCard = ({ resData }) => {
-  
+const RestaurantCard = ({ resData }) => {  
   const { loggedInUser } = useContext(UserContext)
   const {
     name,
@@ -15,7 +14,7 @@ const RestaurantCard = ({ resData }) => {
   } = resData.info;
 
   return (
-    <div className="flex flex-col gap-2 w-64 bg-gray-100 p-4 m-4 rounded-lg hover:bg-gray-300">
+    <div data-testid="resCard" className="flex flex-col gap-2 w-64 bg-gray-100 p-4 m-4 rounded-lg hover:bg-gray-300">
       <div>
         <img
           className="h-52 w-full rounded-lg mb-3"

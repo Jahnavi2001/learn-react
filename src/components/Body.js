@@ -35,9 +35,9 @@ const Body = () => {
 
   const filterTopRatedRestaurants = () => {
     const filteredList = listOfRestaurants.filter(
-      (restaurant) => restaurant.info.avgRating > 4
+      (restaurant) => restaurant.info.avgRating > 4.3
     );
-    setListOfRestaurants(filteredList);
+    setFilteredRestaurants(filteredList);
   };
 
   if (onlineStatus === false) {
@@ -58,6 +58,7 @@ const Body = () => {
             <input
               className="border border-black rounded-md py-1 px-2"
               type="text"
+              data-testid="searchInput"
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
@@ -89,6 +90,7 @@ const Body = () => {
         <div>
           UserName:
           <input
+            data-testid="loggedInUser"
             className="border border-black rounded-md px-4 py-1 ml-2"
             type="text"
             value={loggedInUser}
