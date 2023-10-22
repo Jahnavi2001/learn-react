@@ -52,7 +52,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="flex gap-24 px-14 m-10 mb-6 items-center">
+      <div className="flex gap-14 px-14 mt-10 mb-6 mx-2 items-center">
         <div className="flex gap-2 items-center">
           <div>
             <input
@@ -98,7 +98,16 @@ const Body = () => {
               setUserName(e.target.value);
             }}
           />
-        </div>
+          </div>
+          
+          <div className="bg-gray-300 rounded-md py-1 px-2">
+            <Link to='/demo-use-memo'>Use Memo Hook Demo </Link>
+          </div>
+
+          <div className="bg-gray-300 rounded-md py-1 px-2">
+            <Link to='/demo-use-reference'>Use Ref Hook Demo </Link>
+          </div>
+        
       </div>
 
       <div className="flex flex-wrap">

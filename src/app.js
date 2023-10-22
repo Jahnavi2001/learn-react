@@ -12,6 +12,8 @@ import UserContext from "./utils/UserContext";
 import appStore from "./utils/appStore";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart";
+import DemoUseMemo from "./components/DemoUseMemo";
+import DemoUseReference from "./components/DemoUseReference";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const About = lazy(() => import("./components/About"));
@@ -77,6 +79,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart/>
+      },
+      {
+        path: "/demo-use-memo",
+        element: <DemoUseMemo/>
+      },
+      {
+        path: "/demo-use-reference",
+        element: <DemoUseReference/>
       }
     ],
     errorElement: <Error />,
