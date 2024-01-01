@@ -25,11 +25,12 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(RES_LIST_API);
     const json = await data.json();
+    console.log("🚀 > fetchData > json:", json)
     setListOfRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -48,6 +49,7 @@ const Body = () => {
     );
   }
 
+  console.log('filteredRestaurants', filteredRestaurants)
   return filteredRestaurants.length === 0 ? (
     <Shimmer />
   ) : (

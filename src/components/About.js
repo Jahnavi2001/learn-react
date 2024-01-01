@@ -17,12 +17,12 @@ class About extends React.Component {
     console.log("Parent Render");
 
     return (
-      <div>
-        <h1>This is About us</h1>
+      <div className="text-center my-8">
+        <h1 className="font-bold text-lg">This is About us</h1>
         <UserContext.Consumer>
-          {(data) => <div>USER: {data.loggedInUser}</div> }
+          {(data) => <div>Logged User Name: {data.loggedInUser}</div> }
         </UserContext.Consumer>
-        <h2>Here we are learning react</h2>
+
         <User
           name={"Jahnavi Vuyyuru (Functional Component)"}
           location={"AndhraPradesh"}

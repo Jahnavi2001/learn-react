@@ -1,13 +1,13 @@
-import RestaurantMenu from "../components/RestaurantMenu";
 import { render, screen, fireEvent } from "@testing-library/react";
-import MOCK_DATA from "../mocks/resMenuMock.json";
 import { act } from "react-dom/test-utils";
-import "@testing-library/jest-dom";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import MOCK_DATA from "../mocks/resMenuMock.json";
+import RestaurantMenu from "../components/RestaurantMenu";
 import appStore from "../utils/appStore";
 import Header from "../components/Header";
-import { BrowserRouter } from "react-router-dom";
 import Cart from '../components/Cart'
+import "@testing-library/jest-dom";
 
 global.fetch = jest.fn(() => {
   return Promise.resolve({
